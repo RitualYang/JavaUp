@@ -21,6 +21,10 @@
         <module>frame/mybatis/mybatis-annotation</module>
         <module>frame/orm/jpa</module>
         <module>frame/orm/spring-data-jpa</module>
+        <module>file</module>
+        <module>other</module>
+        <module>netty</module>
+        <module>encrypt</module>
     </modules>
     <packaging>pom</packaging>
 
