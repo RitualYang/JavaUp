@@ -25,6 +25,8 @@
         <module>other</module>
         <module>netty</module>
         <module>encrypt</module>
+        <module>cloud</module>
+        <module>leetcode</module>
     </modules>
     <packaging>pom</packaging>
 
