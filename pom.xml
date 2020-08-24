@@ -12,21 +12,12 @@
         <module>thread</module><!--线程操作-->
         <module>agency</module><!--代理操作-->
         <module>reflect</module><!--反射操作-->
-        <module>java8</module>
-        <module>nio</module>
-        <module>frame/spring</module>
-        <module>frame/mybatis/mybatis-xml-all</module>
-        <module>frame/mybatis/mybatisplus</module>
-        <module>frame/mybatis/mybatis-source</module>
-        <module>frame/mybatis/mybatis-annotation</module>
-        <module>frame/orm/jpa</module>
-        <module>frame/orm/spring-data-jpa</module>
-        <module>file</module>
-        <module>other</module>
-        <module>netty</module>
-        <module>encrypt</module>
-        <module>cloud</module>
-        <module>leetcode</module>
+        <module>java8</module><!--java8新操作-->
+        <module>nio</module><!--nio-->
+        <module>file</module><!--文件操作-->
+        <module>other</module><!--杂项-->
+        <module>netty</module><!--netty服务-->
+        <module>encrypt</module><!--加密-->
     </modules>
     <packaging>pom</packaging>
 
