@@ -14,19 +14,9 @@
         <module>reflect</module><!--反射操作-->
         <module>java8</module>
         <module>nio</module>
-        <module>frame/spring</module>
-        <module>frame/mybatis/mybatis-xml-all</module>
-        <module>frame/mybatis/mybatisplus</module>
-        <module>frame/mybatis/mybatis-source</module>
-        <module>frame/mybatis/mybatis-annotation</module>
-        <module>frame/orm/jpa</module>
-        <module>frame/orm/spring-data-jpa</module>
         <module>file</module>
         <module>other</module>
-        <module>netty</module>
         <module>encrypt</module>
-        <module>cloud</module>
-        <module>leetcode</module>
     </modules>
     <packaging>pom</packaging>
 
