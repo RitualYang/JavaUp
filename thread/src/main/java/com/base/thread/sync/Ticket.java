@@ -22,8 +22,8 @@ public class Ticket implements Runnable {
     @Override
     public void run() {
         Ticket ticket = new Ticket();
-        //ticket.useLock();
-        ticket.syncCodePiece();//单线程调用,其他线程进入阻塞
+        ticket.useLock();
+        //ticket.syncCodePiece();//单线程调用,其他线程进入阻塞
         //syncMethod();// 静态调用,锁同一个实例化的 Ticket对象
     }
 
