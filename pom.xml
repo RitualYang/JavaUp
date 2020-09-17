@@ -12,12 +12,11 @@
         <module>thread</module><!--线程操作-->
         <module>agency</module><!--代理操作-->
         <module>reflect</module><!--反射操作-->
-        <module>java8</module><!--java8新操作-->
-        <module>nio</module><!--nio-->
-        <module>file</module><!--文件操作-->
-        <module>other</module><!--杂项-->
-        <module>netty</module><!--netty服务-->
-        <module>encrypt</module><!--加密-->
+        <module>java8</module>
+        <module>nio</module>
+        <module>file</module>
+        <module>other</module>
+        <module>encrypt</module>
     </modules>
     <packaging>pom</packaging>
 
