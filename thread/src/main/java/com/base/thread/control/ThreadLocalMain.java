@@ -1,4 +1,4 @@
-package com.base.control;
+package com.base.thread.control;
 
 /**
  * @author WTY

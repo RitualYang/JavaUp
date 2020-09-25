@@ -11,4 +11,6 @@
 
     <artifactId>thread</artifactId>
     <name>线程</name>
+    <modules>
+    </modules>
 </project>
