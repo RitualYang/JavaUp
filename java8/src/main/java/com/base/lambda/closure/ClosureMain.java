@@ -11,7 +11,8 @@ public class ClosureMain {
         int n = getNumber().get();
         System.out.println(n);
     }
-    private static Supplier<Integer> getNumber(){
+
+    private static Supplier<Integer> getNumber() {
         //闭包提升作用域
         int num = 10;
         return () -> num;

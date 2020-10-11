@@ -18,7 +18,7 @@ public class PersonAgency {
         noParameter();
     }
 
-    public static void haveParameter(String work){
+    public static void haveParameter(String work) {
         final Student student = new Student();
         /**
          * cglib代理。
@@ -33,7 +33,7 @@ public class PersonAgency {
          *      Callback:用于提供增强的代码
          *          编写代理方法主体,通常使用匿名内部类创建。一般重写子类MethodInterceptor的匿名内部类实现。
          */
-        Student CglibStudent = (Student)Enhancer.create(student.getClass(), new MethodInterceptor() {
+        Student CglibStudent = (Student) Enhancer.create(student.getClass(), new MethodInterceptor() {
             /**
              * 执行被代理对象的任何方法都会经过该方法
              * @param proxy 代理对象的引用
@@ -43,6 +43,7 @@ public class PersonAgency {
              * @return 和被代理对象有相同的返回值
              * @throws Throwable
              */
+            @Override
             public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
                 //提供增强的代码
                 Object returnValue = null;
@@ -59,9 +60,11 @@ public class PersonAgency {
         });
         CglibStudent.work(work);
     }
-    public static void noParameter(){
+
+    public static void noParameter() {
         final Student student = new Student();
-        Student CglibStudent = (Student)Enhancer.create(student.getClass(), new MethodInterceptor() {
+        Student CglibStudent = (Student) Enhancer.create(student.getClass(), new MethodInterceptor() {
+            @Override
             public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
                 //提供增强的代码
                 Object returnValue = null;

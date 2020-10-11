@@ -34,6 +34,7 @@ public class MD5Utils {
         }
         return hex.toString();
     }
+
     public static String encodeByMd5(String string) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         // 确定计算方法
         MessageDigest md5 = MessageDigest.getInstance("MD5");

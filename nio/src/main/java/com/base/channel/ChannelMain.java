@@ -17,39 +17,40 @@ import java.nio.file.StandardOpenOption;
 
 /**
  * 一、通道（Channel）：用于源节点与目标节点的连接。在 Java NIO 中负责缓冲区中数据的传输。Channel 本身不存储数据，因此需要配合缓冲区进行传输。
- *
+ * <p>
  * 二、通道的主要实现类
- * 	java.nio.channels.Channel 接口：
- * 		|--FileChannel
- * 		|--SocketChannel
- * 		|--ServerSocketChannel
- * 		|--DatagramChannel
- *
+ * java.nio.channels.Channel 接口：
+ * |--FileChannel
+ * |--SocketChannel
+ * |--ServerSocketChannel
+ * |--DatagramChannel
+ * <p>
  * 三、获取通道
  * 1. Java 针对支持通道的类提供了 getChannel() 方法
- * 		本地 IO：
- * 		FileInputStream/FileOutputStream
- * 		RandomAccessFile
- *
- * 		网络IO：
- * 		Socket
- * 		ServerSocket
- * 		DatagramSocket
- *
+ * 本地 IO：
+ * FileInputStream/FileOutputStream
+ * RandomAccessFile
+ * <p>
+ * 网络IO：
+ * Socket
+ * ServerSocket
+ * DatagramSocket
+ * <p>
  * 2. 在 JDK 1.7 中的 NIO.2 针对各个通道提供了静态方法 open()
  * 3. 在 JDK 1.7 中的 NIO.2 的 Files 工具类的 newByteChannel()
- *
+ * <p>
  * 四、通道之间的数据传输
  * transferFrom()
  * transferTo()
- *
+ * <p>
  * 五、分散(Scatter)与聚集(Gather)
  * 分散读取（Scattering Reads）：将通道中的数据分散到多个缓冲区中
  * 聚集写入（Gathering Writes）：将多个缓冲区中的数据聚集到通道中
- *
+ * <p>
  * 六、字符集：Charset
  * 编码：字符串 -> 字节数组
  * 解码：字节数组  -> 字符串
+ *
  * @author WTY
  * @Date 2020/5/11 22:27
  */
@@ -65,7 +66,7 @@ public class ChannelMain {
     /**
      * 字符集
      */
-    public static void upCharSet(){
+    public static void upCharSet() {
         try {
             Charset cs1 = Charset.forName("GBK");
             //获取编码器
@@ -100,12 +101,13 @@ public class ChannelMain {
             e.printStackTrace();
         }
     }
+
     /**
      * 分散和聚集
      */
     public static void ScatterGather() {
         try {
-            RandomAccessFile raf1 = new RandomAccessFile("1.txt","rw");
+            RandomAccessFile raf1 = new RandomAccessFile("1.txt", "rw");
             //获取通道
             FileChannel channel1 = raf1.getChannel();
             //分配指定大小的缓冲区
@@ -122,7 +124,7 @@ public class ChannelMain {
             System.out.println(new String(bufs[1].array(), 0, bufs[1].limit()));
 
             //聚集写入
-            RandomAccessFile raf2 = new RandomAccessFile("2.txt","rw");
+            RandomAccessFile raf2 = new RandomAccessFile("2.txt", "rw");
             FileChannel channel2 = raf2.getChannel();
             channel2.write(bufs);
 
@@ -134,9 +136,10 @@ public class ChannelMain {
     /**
      * 使用直接缓冲区完成文件的复制（内存映射文件）
      */
-    public static void openCopeFile(){
+    public static void openCopeFile() {
         try (FileChannel inChannel = FileChannel.open(Paths.get("1.jpg"), StandardOpenOption.READ);
-        FileChannel outChannel = FileChannel.open(Paths.get("3.jpg"),StandardOpenOption.WRITE,StandardOpenOption.READ,StandardOpenOption.CREATE)) {
+             FileChannel outChannel = FileChannel.open(Paths.get("3.jpg"), StandardOpenOption.WRITE,
+                     StandardOpenOption.READ, StandardOpenOption.CREATE)) {
             // 内存映射文件
             MappedByteBuffer inMappedBuf = inChannel.map(FileChannel.MapMode.READ_ONLY, 0, inChannel.size());
             MappedByteBuffer outMappedBuf = outChannel.map(FileChannel.MapMode.READ_WRITE, 0, inChannel.size());
@@ -154,15 +157,15 @@ public class ChannelMain {
     /**
      * 利用通道完成文件的复制（非直接缓冲区）
      */
-    public static void copyFile(){
-        try(FileInputStream fis = new FileInputStream("1.jpg");
-            FileOutputStream fos = new FileOutputStream("2.jpg");
-            FileChannel inChannel = fis.getChannel();
-            FileChannel outChannel = fos.getChannel()) {
+    public static void copyFile() {
+        try (FileInputStream fis = new FileInputStream("1.jpg");
+             FileOutputStream fos = new FileOutputStream("2.jpg");
+             FileChannel inChannel = fis.getChannel();
+             FileChannel outChannel = fos.getChannel()) {
             //分配指定大小的缓冲区
             ByteBuffer buf = ByteBuffer.allocate(1024);
             //将通道中的数据存入缓冲区中
-            while (inChannel.read(buf) != -1){
+            while (inChannel.read(buf) != -1) {
                 buf.flip();//切换读取数据的模式
                 //将缓冲区中的数据写入通道中
                 outChannel.write(buf);
@@ -171,9 +174,6 @@ public class ChannelMain {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
 
     }
 }

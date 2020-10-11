@@ -27,10 +27,10 @@ public class Syntax1 {
         };
         lambdaNoneReturnSingleParameter.print("单参无返回 ");
         //多参无返回
-        LambdaNoneReturnMutipleParameter lambdaNoneReturnMutipleParameter = (String str1,String str2) -> {
+        LambdaNoneReturnMutipleParameter lambdaNoneReturnMutipleParameter = (String str1, String str2) -> {
             System.out.println(str1 + str2 + " print LambdaNoneReturnMutipleParameter");
         };
-        lambdaNoneReturnMutipleParameter.print("多参","无返回");
+        lambdaNoneReturnMutipleParameter.print("多参", "无返回");
         //无参有返回
         LambdaSingleReturnNoneParameter lambdaSingleReturnNoneParameter = () -> {
             return "无参有返回 print lambdaSingleReturnNoneParameter";
@@ -42,9 +42,9 @@ public class Syntax1 {
         };
         System.out.println(lambdaSingleReturnSingleParameter.print("单参有返回"));
         //多参有返回
-        LambdaSingleReturnMutipleParameter lambdaSingleReturnMutipleParameter = (String str1,String str2) -> {
+        LambdaSingleReturnMutipleParameter lambdaSingleReturnMutipleParameter = (String str1, String str2) -> {
             return str1 + str2 + " print LambdaSingleReturnMutipleParameter";
         };
-        System.out.println(lambdaSingleReturnMutipleParameter.print("多参","有返回"));
+        System.out.println(lambdaSingleReturnMutipleParameter.print("多参", "有返回"));
     }
 }

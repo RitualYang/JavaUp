@@ -15,20 +15,21 @@ import java.util.stream.LongStream;
 public class ForkJoinTest {
 
     @Test
-    public void test1(){
+    public void test1() {
         Instant start = Instant.now();
         ForkJoinPool pool = new ForkJoinPool();
-        ForkJoinTask<Long> task = new ForkJoinCalculate(0,1000000000L);
+        ForkJoinTask<Long> task = new ForkJoinCalculate(0, 1000000000L);
         Long sum = pool.invoke(task);
         System.out.println(sum);
         Instant end = Instant.now();
         System.out.println(Duration.between(start, end).toMillis());
     }
+
     @Test
-    public void test2(){
+    public void test2() {
         Instant start = Instant.now();
         long sum = 0L;
-        for(long i = 0;i < 1000000000L;i++){
+        for (long i = 0; i < 1000000000L; i++) {
             sum += i;
         }
         System.out.println(sum);
@@ -40,7 +41,7 @@ public class ForkJoinTest {
      * java8并行流
      */
     @Test
-    public void test3(){
+    public void test3() {
         Instant start = Instant.now();
         LongStream.rangeClosed(0, 1000000000L)
                 .parallel()

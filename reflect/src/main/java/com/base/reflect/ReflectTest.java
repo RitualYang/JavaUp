@@ -1,5 +1,7 @@
 package com.base.reflect;
+
 import com.base.entity.Student;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -13,7 +15,7 @@ public class ReflectTest {
         getInstance();
     }
 
-    public static void getInstance() throws Exception{
+    public static void getInstance() throws Exception {
         Class aClass = Class.forName("com.base.entity.Student");
         //初始化
         //无参初始化
@@ -25,7 +27,7 @@ public class ReflectTest {
         //方法调用
         //有参方法调用
         Method study = aClass.getMethod("study", String.class);
-        study.invoke(student,"我是好人");
+        study.invoke(student, "我是好人");
         //无参方法调用
         Method study1 = aClass.getMethod("study");
         study1.invoke(student);
@@ -40,7 +42,7 @@ public class ReflectTest {
         Object o = mobile.get(student);
         System.out.println(o);
         //修改属性值
-        mobile.set(student,"key");
+        mobile.set(student, "key");
         Object o1 = mobile.get(student);
         System.out.println(o1);
         Field nums = aClass.getField("nums");

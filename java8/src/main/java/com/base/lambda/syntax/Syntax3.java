@@ -19,6 +19,7 @@ public class Syntax3 {
         LambdaSingleReturnSingleParameter lambdaSingleReturnSingleParameter = str -> change(str);
         LambdaSingleReturnSingleParameter lambdaSingleReturnSingleParameter1 = Syntax3::change;
     }
+
     private static String change(String str) {
         return str + " print";
     }

@@ -18,10 +18,12 @@ public class Syntax4 {
         Person b = creater2.getPersion("wty", 22);
     }
 }
+
 //需求:
 interface PersonCreater {
     Person getPersion();
 }
+
 interface PersonCreater2 {
-    Person getPersion(String name,int age);
+    Person getPersion(String name, int age);
 }

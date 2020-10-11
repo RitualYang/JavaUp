@@ -45,12 +45,13 @@ public class Imagebase64 {
 
     /**
      * 传入txt路径读取txt文件
+     *
      * @param txtPath
      * @return 返回读取到的内容
      */
     public static String readTxt(String txtPath) {
         File file = new File(txtPath);
-        if(file.isFile() && file.exists()){
+        if (file.isFile() && file.exists()) {
             try {
                 FileInputStream fileInputStream = new FileInputStream(file);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
@@ -58,7 +59,7 @@ public class Imagebase64 {
 
                 StringBuffer sb = new StringBuffer();
                 String text = null;
-                while((text = bufferedReader.readLine()) != null){
+                while ((text = bufferedReader.readLine()) != null) {
                     sb.append(text);
                 }
                 return sb.toString();

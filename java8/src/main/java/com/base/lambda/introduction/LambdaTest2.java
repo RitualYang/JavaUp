@@ -21,13 +21,16 @@ public class LambdaTest2 {
 
     }
 }
-class MyComparator implements Comparator{
+
+class MyComparator implements Comparator {
     @Override
     public int compare(int a, int b) {
         return a + b;
     }
 }
-@FunctionalInterface//修饰函数式声明接口: 接口中的抽象方法只有一个。
+
+@FunctionalInterface
+//修饰函数式声明接口: 接口中的抽象方法只有一个。
 interface Comparator {
-    int compare(int a,int b);
+    int compare(int a, int b);
 }

@@ -15,7 +15,7 @@ public class LocalDateTimeMain {
      * LocalDateTime
      */
     @Test
-    public void test1(){
+    public void test1() {
         LocalDateTime ldt = LocalDateTime.now();
         System.out.println(ldt);
 
@@ -35,7 +35,7 @@ public class LocalDateTimeMain {
      * Instant: 时间戳（以Unix 元年:1970年1月1日00:00:00 到某一时刻之间的毫秒值）
      */
     @Test
-    public void test2(){
+    public void test2() {
         Instant now = Instant.now(); // 默认获取UTC时区
         System.out.println(now);
         OffsetDateTime offsetDateTime = now.atOffset(ZoneOffset.ofHours(8));
@@ -50,7 +50,7 @@ public class LocalDateTimeMain {
      * Period   : 计算两个“日期”之间的间隔。
      */
     @Test
-    public void test3(){
+    public void test3() {
         Instant now = Instant.now();
         try {
             Thread.sleep(1234);

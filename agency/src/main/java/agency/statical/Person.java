@@ -8,6 +8,7 @@ public interface Person {
 
     /**
      * 工作
+     *
      * @param work
      */
     void work(String work);

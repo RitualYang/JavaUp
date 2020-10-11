@@ -14,23 +14,24 @@ import java.util.Scanner;
  * 一、使用 NIO 完成网络通信的三个核心：
  * 1. 通道（Channel）：负责连接
  * java.nio.channels.Channel 接口：
- * 	|--SelectableChannel
- * 		|--SocketChannel
- * 		|--ServerSocketChannel
- * 		|--DatagramChannel
-
- * 		|--Pipe.SinkChannel
- * 		|--Pipe.SourceChannel
+ * |--SelectableChannel
+ * |--SocketChannel
+ * |--ServerSocketChannel
+ * |--DatagramChannel
+ * <p>
+ * |--Pipe.SinkChannel
+ * |--Pipe.SourceChannel
  * 2. 缓冲区（Buffer）：负责数据的存取
  * 3. 选择器（Selector）：是 SelectableChannel 的多路复用器。用于监控 SelectableChannel 的 IO 状况
  */
 public class NonBlockingNIOTest {
 
-	/**
-	 * 客户端
-	 * @throws IOException
-	 */
-	@Test
+    /**
+     * 客户端
+     *
+     * @throws IOException
+     */
+    @Test
     public void client() throws IOException {
         //获取通道
         SocketChannel sChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", 9898));
@@ -52,11 +53,12 @@ public class NonBlockingNIOTest {
         sChannel.close();
     }
 
-	/**
-	 * 服务端
-	 * @throws IOException
-	 */
-	@Test
+    /**
+     * 服务端
+     *
+     * @throws IOException
+     */
+    @Test
     public void server() throws IOException {
         //获取通道
         ServerSocketChannel ssChannel = ServerSocketChannel.open();
@@ -100,13 +102,14 @@ public class NonBlockingNIOTest {
             }
         }
     }
+
     @Test
-    public void send() throws IOException{
+    public void send() throws IOException {
         DatagramChannel dc = DatagramChannel.open();
         dc.configureBlocking(false);
         ByteBuffer buf = ByteBuffer.allocate(1024);
         Scanner scan = new Scanner(System.in);
-        while(scan.hasNext()){
+        while (scan.hasNext()) {
             String str = scan.next();
             buf.put((new Date().toString() + ":\n" + str).getBytes());
             buf.flip();
@@ -117,17 +120,17 @@ public class NonBlockingNIOTest {
     }
 
     @Test
-    public void receive() throws IOException{
+    public void receive() throws IOException {
         DatagramChannel dc = DatagramChannel.open();
         dc.configureBlocking(false);
         dc.bind(new InetSocketAddress(9898));
         Selector selector = Selector.open();
         dc.register(selector, SelectionKey.OP_READ);
-        while(selector.select() > 0){
+        while (selector.select() > 0) {
             Iterator<SelectionKey> it = selector.selectedKeys().iterator();
-            while(it.hasNext()){
+            while (it.hasNext()) {
                 SelectionKey sk = it.next();
-                if(sk.isReadable()){
+                if (sk.isReadable()) {
                     ByteBuffer buf = ByteBuffer.allocate(1024);
                     dc.receive(buf);
                     buf.flip();

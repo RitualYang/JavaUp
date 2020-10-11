@@ -1,6 +1,5 @@
 package com.wty.pdf;
 
-
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 
@@ -19,17 +18,17 @@ public class PasePdf {
      */
     public static void main(String[] args) throws Exception {
         String fileName = "tableAndTitle.pdf";
-        PasePdf.test(fileName,4);
+        PasePdf.test(fileName, 4);
     }
 
-    private static void test(String fileName,Integer total) {
+    private static void test(String fileName, Integer total) {
         Document document = new Document();
         document.setPageSize(PageSize.A4);
         try {
             PdfWriter.getInstance(document, new FileOutputStream(fileName));
             document.open();
             PdfPTable table = new PdfPTable(total);
-            for (int i = 0;i<total;i++){
+            for (int i = 0; i < total; i++) {
                 PdfPTable row = createRow(1);
                 table.addCell(row);
             }
@@ -56,8 +55,8 @@ public class PasePdf {
                 cell.setMinimumHeight(30);
                 cell.setUseAscender(true);
                 cell.setColspan(2);
-                if (i==0) {
-                    cell.setBackgroundColor(new BaseColor(231,230,230));
+                if (i == 0) {
+                    cell.setBackgroundColor(new BaseColor(231, 230, 230));
                 }
                 if (i == 4) {
                     cell.setColspan(1);

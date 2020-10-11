@@ -16,15 +16,15 @@ public class ThreadCreateMain {
         threadCreateMain.ImplementsRunnable();
         threadCreateMain.ImplementsCallable();
         //threadCreateMain.CreateExeutor();
-        for (int i = 0; i<10; i++){
-            System.out.println(Thread.currentThread().getName() + " 执行了：" + System.currentTimeMillis()  + "执行次数：" + i);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Thread.currentThread().getName() + " 执行了：" + System.currentTimeMillis() + "执行次数：" + i);
         }
     }
 
     /**
      * 通过继承Thread类,重写run方法
      */
-    public void ExtendsThread(){
+    public void ExtendsThread() {
         MyThread myThread = new MyThread("MyThread");
         myThread.start();
     }
@@ -33,15 +33,16 @@ public class ThreadCreateMain {
      * 通过实现Runnable接口,实现run方法,
      * Thread类启动
      */
-    public void ImplementsRunnable(){
-        Thread thread = new Thread(new MyRunnable(),"MyRunnable");
+    public void ImplementsRunnable() {
+        Thread thread = new Thread(new MyRunnable(), "MyRunnable");
 
         // 可通过匿名内部类实现
         /*Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 10; i++) {
-                    System.out.println(Thread.currentThread().getName() + " 执行了：" + System.currentTimeMillis() + "执行次数：" + i);
+                    System.out.println(Thread.currentThread().getName() + " 执行了：" + System.currentTimeMillis() + 
+                    "执行次数：" + i);
                 }
             }
         },"MyRunnable");*/
@@ -53,9 +54,9 @@ public class ThreadCreateMain {
      * FutureTask装载该实现类
      * Thread启动
      */
-    public void ImplementsCallable(){
+    public void ImplementsCallable() {
         FutureTask<String> stringFutureTask = new FutureTask<>(new MyCallable());
-        Thread thread = new Thread(stringFutureTask,"MyCallable");
+        Thread thread = new Thread(stringFutureTask, "MyCallable");
         thread.start();
         // 需要先执行线程后,才能获取执行结果。
         try {
@@ -68,7 +69,7 @@ public class ThreadCreateMain {
         }
     }
 
-    public void CreateExeutor(){
+    public void CreateExeutor() {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(new MyRunnable());
     }

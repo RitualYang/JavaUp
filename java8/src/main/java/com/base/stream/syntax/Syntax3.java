@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 排序
+ *
  * @author WTY
  * @Date 2020/4/25 20:54
  */
@@ -30,10 +31,10 @@ public class Syntax3 {
                 .forEach(System.out::println);
         System.out.println("---------------------------------------");
         employees.stream()
-                .sorted((e1,e2) -> {
-                    if (e1.getAge().equals(e2.getAge())){
+                .sorted((e1, e2) -> {
+                    if (e1.getAge().equals(e2.getAge())) {
                         return e1.getName().compareTo(e2.getName());
-                    }else {
+                    } else {
                         return e1.getAge().compareTo(e2.getAge());
                     }
                 })

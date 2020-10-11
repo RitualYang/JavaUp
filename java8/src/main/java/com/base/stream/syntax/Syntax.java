@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 筛选与切片
+ *
  * @author WTY
  * @Date 2020/4/25 20:54
  */
@@ -19,13 +20,13 @@ public class Syntax {
      */
     public static void main(String[] args) {
         List<Employee> employees = Arrays.asList(
-                new Employee("张三",19,3333.44),
-                new Employee("李四",49,7777.44),
-                new Employee("王五",23,2222.11),
-                new Employee("赵六",22,10000.22),
-                new Employee("段七",61,66666.44),
-                new Employee("段七",61,66666.44),
-                new Employee("段七",61,66666.44)
+                new Employee("张三", 19, 3333.44),
+                new Employee("李四", 49, 7777.44),
+                new Employee("王五", 23, 2222.11),
+                new Employee("赵六", 22, 10000.22),
+                new Employee("段七", 61, 66666.44),
+                new Employee("段七", 61, 66666.44),
+                new Employee("段七", 61, 66666.44)
         );
         employees.stream()
                 .filter((e) -> e.getAge() > 20)

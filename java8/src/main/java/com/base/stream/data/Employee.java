@@ -6,7 +6,7 @@ import java.util.Objects;
  * @author WTY
  * @Date 2020/4/25 20:58
  */
-public class Employee implements Comparable<Employee>{
+public class Employee implements Comparable<Employee> {
     public String name;
     public Integer age;
     public Double salary;
@@ -89,11 +89,11 @@ public class Employee implements Comparable<Employee>{
         return Objects.hash(name, age, salary);
     }
 
-
     @Override
     public int compareTo(Employee o) {
-        return  o.getSalary().intValue();
+        return o.getSalary().intValue();
     }
+
     public enum Status {
         FREE,
         BUSY,

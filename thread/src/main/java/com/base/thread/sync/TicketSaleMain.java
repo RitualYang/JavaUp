@@ -4,7 +4,7 @@ package com.base.thread.sync;
  * @author WTY
  */
 public class TicketSaleMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //1.创建电影票对象
         Ticket ticket = new Ticket();
         //2.创建Thread对象,执行电影票售卖

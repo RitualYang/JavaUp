@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 规约
+ *
  * @author WTY
  * @Date 2020/4/25 20:54
  */
@@ -25,7 +26,7 @@ public class Syntax6 {
                 new Employee("段七", 61, 66666.44, Employee.Status.VOCATION),
                 new Employee("段七", 61, 66666.44, Employee.Status.BUSY)
         );
-        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9);
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         Integer sum = list.stream()
                 .reduce(0, (x, y) -> x + y);
         System.out.println(sum);

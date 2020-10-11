@@ -18,7 +18,7 @@ public class TemporalMain {
      * TemporalAdjuster: 时间矫正器
      */
     @Test
-    public void test1(){
+    public void test1() {
         LocalDateTime ldt = LocalDateTime.now();
         System.out.println(ldt);
         LocalDateTime ldt2 = ldt.withDayOfMonth(10);
@@ -43,7 +43,7 @@ public class TemporalMain {
      * DateTimeFormatter:格式化时间/日期
      */
     @Test
-    public void test2(){
+    public void test2() {
         DateTimeFormatter dtf = DateTimeFormatter.ISO_DATE;
         LocalDateTime ldt = LocalDateTime.now();
         String strDate = ldt.format(dtf);
@@ -61,7 +61,7 @@ public class TemporalMain {
      * ZonedDateTime
      */
     @Test
-    public void test3(){
+    public void test3() {
         /*Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
         availableZoneIds.forEach(System.out::println);*/
         LocalDateTime now = LocalDateTime.now(ZoneId.of("Asia/Shanghai"));

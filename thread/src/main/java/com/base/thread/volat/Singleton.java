@@ -12,7 +12,7 @@ public class Singleton {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -24,13 +24,13 @@ public class Singleton {
     }
 
     public static Singleton getInstance() {
-        if(instance==null) {
+        if (instance == null) {
             synchronized (Singleton.class) {
                 /**
                  * 与volatile关键词连用
                  * 判断实例化是否被创建,如果已经被创建则跳过初始化
                  */
-                if(instance==null) {
+                if (instance == null) {
                     instance = new Singleton();
                 }
             }
@@ -39,7 +39,7 @@ public class Singleton {
     }
 
     public static Singleton getErrorInstance() {
-        if(instance==null) {
+        if (instance == null) {
             /**
              * 线程1,2,3判断完成后,执行到这里
              * 线程1获取锁继续执行,2、3等待。

@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 查找与匹配
+ *
  * @author WTY
  * @Date 2020/4/25 20:54
  */
@@ -53,6 +54,6 @@ public class Syntax5 {
                 .max((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary())).get();
         Employee minEmployee = employees.stream()
                 .min((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary())).get();
-        System.out.println("max salary: "+ maxEmployee + " min salary: " + minEmployee);
+        System.out.println("max salary: " + maxEmployee + " min salary: " + minEmployee);
     }
 }

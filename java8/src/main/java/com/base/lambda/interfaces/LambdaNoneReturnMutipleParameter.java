@@ -6,5 +6,5 @@ package com.base.lambda.interfaces;
  */
 @FunctionalInterface
 public interface LambdaNoneReturnMutipleParameter {
-    void print(String a,String b);
+    void print(String a, String b);
 }

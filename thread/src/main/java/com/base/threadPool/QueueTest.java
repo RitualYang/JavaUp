@@ -21,7 +21,7 @@ public class QueueTest {
         ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
         for (int i = 0; i < 20; i++) {
             queue.put(i);
-            System.out.println("向队列添加值:"+ i);
+            System.out.println("向队列添加值:" + i);
         }
     }
 
@@ -33,7 +33,7 @@ public class QueueTest {
         LinkedBlockingDeque<Integer> queue = new LinkedBlockingDeque<>(10);
         for (int i = 0; i < 20; i++) {
             queue.put(i);
-            System.out.println("向队列添加值:"+ i);
+            System.out.println("向队列添加值:" + i);
         }
     }
 
@@ -43,10 +43,10 @@ public class QueueTest {
          * 同步移交阻塞队列
          */
         SynchronousQueue<Integer> queue = new SynchronousQueue<>();
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 queue.put(1);
-                System.out.println("向队列添加值:"+ 1);
+                System.out.println("向队列添加值:" + 1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

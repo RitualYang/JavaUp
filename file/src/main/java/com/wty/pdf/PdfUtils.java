@@ -18,6 +18,7 @@ import java.io.IOException;
 public class PdfUtils {
 
     static Font CH_FONT = null;
+
     static {
         BaseFont baseFont = null;
         try {
@@ -32,12 +33,13 @@ public class PdfUtils {
 
     /**
      * 格子
+     *
      * @param row
      * @param col
      * @param height
      * @return
      */
-    public static PdfPCell createCell(int row, int col, int height){
+    public static PdfPCell createCell(int row, int col, int height) {
         PdfPCell pdfPCell = new PdfPCell();
         pdfPCell.setRowspan(row);
         pdfPCell.setColspan(col);
@@ -48,17 +50,19 @@ public class PdfUtils {
 
     /**
      * 块
+     *
      * @return
      */
-    public static Chunk createChunk(){
+    public static Chunk createChunk() {
         return new Chunk();
     }
 
     /**
      * 段落
+     *
      * @return
      */
-    public static Paragraph createParagraph(){
+    public static Paragraph createParagraph() {
         Paragraph elements = new Paragraph("", CH_FONT);
         elements.setAlignment(1);
         return elements;

@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 /**
  * 收集
+ *
  * @author WTY
  * @Date 2020/4/25 20:54
  */
@@ -24,14 +25,13 @@ public class Syntax7 {
             new Employee("段七", 61, 66666.44, Employee.Status.VOCATION),
             new Employee("段七", 61, 66666.44, Employee.Status.BUSY)
     );
+
     public static void main(String[] args) {
-
-
 
     }
 
     @Test
-    public void toCollector(){
+    public void toCollector() {
         List<String> list = employees.stream()
                 .map(Employee::getName)
                 .collect(Collectors.toList());
@@ -49,7 +49,7 @@ public class Syntax7 {
     }
 
     @Test
-    public void count(){
+    public void count() {
         System.out.println("---------------------------");
         // 总数
         Long count = employees.stream()
@@ -83,7 +83,7 @@ public class Syntax7 {
     }
 
     @Test
-    public void grouping(){
+    public void grouping() {
         // 分组
         Map<Employee.Status, List<Employee>> map = employees.stream()
                 .collect(Collectors.groupingBy(Employee::getStatus));
@@ -99,15 +99,17 @@ public class Syntax7 {
                 })));
         System.out.println(map1);
     }
+
     @Test
-    public void partitioning(){
+    public void partitioning() {
         // 分区
         Map<Boolean, List<Employee>> map = employees.stream()
                 .collect(Collectors.partitioningBy((e) -> e.getSalary() > 5000));
         System.out.println(map);
     }
+
     @Test
-    public void summarizing(){
+    public void summarizing() {
         DoubleSummaryStatistics dss = employees.stream()
                 .collect(Collectors.summarizingDouble(Employee::getSalary));
         System.out.println(dss.getMax());
@@ -118,11 +120,11 @@ public class Syntax7 {
     }
 
     @Test
-    public void joining(){
+    public void joining() {
         // 连接
         String str = employees.stream()
                 .map(Employee::getName)
-                .collect(Collectors.joining(",","起始 "," 结尾"));
+                .collect(Collectors.joining(",", "起始 ", " 结尾"));
         System.out.println(str);
     }
 
