@@ -3,8 +3,8 @@ package com.base.lambda.syntax;
 import com.base.lambda.data.Person;
 
 /**
- * @author WTY
- * @Date 2020/4/17-05
+ * @author wty
+ * @date 2020/4/17-05
  */
 public class Syntax4 {
     public static void main(String[] args) {

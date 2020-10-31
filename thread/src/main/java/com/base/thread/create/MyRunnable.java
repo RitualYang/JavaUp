@@ -1,8 +1,8 @@
 package com.base.thread.create;
 
 /**
- * @author WTY
- * @Date 2020/5/7 23:01
+ * @author wty
+ * @date 2020/5/7 23:01
  */
 public class MyRunnable implements Runnable {
     @Override

@@ -8,7 +8,7 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 /**
- * @author WTY
+ * @author wty
  * @create 2020-01-06 17:04
  */
 public class PersonAgency {

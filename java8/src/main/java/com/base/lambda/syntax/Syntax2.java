@@ -5,8 +5,8 @@ import com.base.lambda.interfaces.*;
 /**
  * lambda语法精简
  *
- * @author: WTY
- * @Date: 2020/4/23-22-43
+ * @author: wty
+ * @date: 2020/4/23-22-43
  */
 public class Syntax2 {
     public static void main(String[] args) {

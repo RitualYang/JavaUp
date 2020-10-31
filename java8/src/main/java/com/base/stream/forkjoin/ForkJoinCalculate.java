@@ -3,8 +3,8 @@ package com.base.stream.forkjoin;
 import java.util.concurrent.RecursiveTask;
 
 /**
- * @author WTY
- * @Date 2020/4/26 22:00
+ * @author wty
+ * @date 2020/4/26 22:00
  */
 public class ForkJoinCalculate extends RecursiveTask<Long> {
 

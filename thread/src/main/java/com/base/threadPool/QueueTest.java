@@ -7,7 +7,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.SynchronousQueue;
 
 /**
- * @author: WTY
+ * @author: wty
  * @date: 2019-12-25
  * @desc:
  */

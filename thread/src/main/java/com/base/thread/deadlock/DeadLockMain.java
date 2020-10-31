@@ -17,7 +17,7 @@ package com.base.thread.deadlock;
  * 即存在一个处于等待状态的进程集合{Pl, P2, …, pn},其中Pi等 待的资源被P(i+1)占
  * 有（i=0, 1, …, n-1),Pn等待的资源被P0占有
  *
- * @author WTY
+ * @author wty
  */
 public class DeadLockMain {
     public static void main(String[] args) {

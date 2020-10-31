@@ -3,7 +3,7 @@ package com.base.threadPool;
 import java.util.concurrent.*;
 
 /**
- * @author WTY
+ * @author wty
  * @create 2020-01-06 18:19
  */
 public class ThreadPool {

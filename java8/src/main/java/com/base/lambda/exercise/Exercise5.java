@@ -1,8 +1,8 @@
 package com.base.lambda.exercise;
 
 /**
- * @author WTY
- * @Date 2020/4/24 17:42
+ * @author wty
+ * @date 2020/4/24 17:42
  */
 public class Exercise5 {
     public static void main(String[] args) {

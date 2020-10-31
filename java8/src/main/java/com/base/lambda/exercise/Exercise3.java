@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * @author WTY
- * @Date 2020/4/24 17:29
+ * @author wty
+ * @date 2020/4/24 17:29
  */
 public class Exercise3 {
     public static void main(String[] args) {

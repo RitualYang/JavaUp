@@ -6,8 +6,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 
 /**
- * @author WTY
- * @Date 2020/5/7 22:57
+ * @author wty
+ * @date 2020/5/7 22:57
  */
 public class ThreadCreateMain {
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class ThreadCreateMain {
         threadCreateMain.ExtendsThread();
         threadCreateMain.ImplementsRunnable();
         threadCreateMain.ImplementsCallable();
-        //threadCreateMain.CreateExeutor();
+        threadCreateMain.CreateExecutor();
         for (int i = 0; i < 10; i++) {
             System.out.println(Thread.currentThread().getName() + " 执行了：" + System.currentTimeMillis() + "执行次数：" + i);
         }
@@ -62,14 +62,12 @@ public class ThreadCreateMain {
         try {
             String s = stringFutureTask.get();
             System.out.println("返回结果为：" + s + "执行完毕");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
 
-    public void CreateExeutor() {
+    public void CreateExecutor() {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(new MyRunnable());
     }

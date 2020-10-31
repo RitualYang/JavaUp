@@ -3,8 +3,8 @@ package com.base.stream.data;
 import java.util.Objects;
 
 /**
- * @author WTY
- * @Date 2020/4/25 20:58
+ * @author wty
+ * @date 2020/4/25 20:58
  */
 public class Employee implements Comparable<Employee> {
     public String name;

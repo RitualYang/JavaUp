@@ -1,8 +1,8 @@
 package com.base.thread.create;
 
 /**
- * @author WTY
- * @Date 2020/5/7 22:56
+ * @author wty
+ * @date 2020/5/7 22:56
  */
 public class MyThread extends Thread {
     public MyThread(String myThread) {

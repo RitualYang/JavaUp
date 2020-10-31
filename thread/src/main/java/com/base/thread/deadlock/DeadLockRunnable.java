@@ -1,21 +1,21 @@
 package com.base.thread.deadlock;
 
 /**
- * @author WTY
+ * @author wty
  */
 public class DeadLockRunnable implements Runnable {
     /**
      * 决定线程走向的标记
      */
-    private int flag;
+    private final int flag;
     /**
      * 锁对象1
      */
-    private static Object obj1 = new Object();
+    private static final Object obj1 = new Object();
     /**
      * 锁对象2
      */
-    private static Object obj2 = new Object();
+    private static final Object obj2 = new Object();
 
     public DeadLockRunnable(int flag) {
         this.flag = flag;

@@ -1,8 +1,8 @@
 package com.base.lambda.introduction;
 
 /**
- * @author: WTY
- * @Date: 2020/4/23-22-23
+ * @author: wty
+ * @date: 2020/4/23-22-23
  */
 public class LambdaTest2 {
     public static void main(String[] args) {

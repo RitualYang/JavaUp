@@ -1,8 +1,8 @@
 package com.base.lambda.data;
 
 /**
- * @author WTY
- * @Date 2020/4/17-06
+ * @author wty
+ * @date 2020/4/17-06
  */
 public class Person {
     public String name;

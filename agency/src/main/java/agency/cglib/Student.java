@@ -1,7 +1,7 @@
 package agency.cglib;
 
 /**
- * @author WTY
+ * @author wty
  * @create 2020-01-06 17:02
  */
 public class Student {

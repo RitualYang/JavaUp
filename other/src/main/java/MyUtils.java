@@ -5,7 +5,7 @@ import java.util.Date;
  * TODO
  *
  * @author wty
- * @Date 2020/9/12 18:13
+ * @date 2020/9/12 18:13
  */
 public class MyUtils {
     public static String getGender() {

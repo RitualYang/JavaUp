@@ -1,8 +1,8 @@
 package com.base.lambda.functional;
 
 /**
- * @author WTY
- * @Date 2020/4/24 17:45
+ * @author wty
+ * @date 2020/4/24 17:45
  */
 public class FunctionalInterface {
     public static void main(String[] args) {

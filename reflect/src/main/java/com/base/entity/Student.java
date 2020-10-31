@@ -1,7 +1,7 @@
 package com.base.entity;
 
 /**
- * @author WTY
+ * @author wty
  * @create 2020-03-04 18:19
  */
 public class Student {

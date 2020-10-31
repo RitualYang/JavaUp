@@ -10,8 +10,8 @@ import java.util.stream.Stream;
 /**
  * 映射
  *
- * @author WTY
- * @Date 2020/4/25 20:54
+ * @author wty
+ * @date 2020/4/25 20:54
  */
 public class Syntax2 {
     /**

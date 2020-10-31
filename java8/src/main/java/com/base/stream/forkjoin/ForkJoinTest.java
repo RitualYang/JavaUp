@@ -9,8 +9,8 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.stream.LongStream;
 
 /**
- * @author WTY
- * @Date 2020/4/27 16:44
+ * @author wty
+ * @date 2020/4/27 16:44
  */
 public class ForkJoinTest {
 

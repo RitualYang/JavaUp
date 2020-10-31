@@ -12,8 +12,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 /**
- * @author WTY
- * @Date 2020/5/14 21:13
+ * @author wty
+ * @date 2020/5/14 21:13
  */
 public class BlockingNIOTest {
     /**

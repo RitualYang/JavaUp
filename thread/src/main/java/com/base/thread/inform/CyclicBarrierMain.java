@@ -7,22 +7,20 @@ import java.util.concurrent.CyclicBarrier;
  * CyclicBarrier实现让一组线程等待至某个状态之后再全部同时执行。
  * 底层通过ReentrantLock和Condition实现的。
  *
- * @author WTY
+ * @author wty
  */
 public class CyclicBarrierMain {
     //参数是参与CyclicBarrier的线程数
-    private CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+    private final CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
 
     public void startThread() {
         //1.打印线程准备启动
         String name = Thread.currentThread().getName();
         System.out.println(name + "正在准备。。。");
-        //2.调用CyclicBarriar的await方法等待其他线程全部准备完成
+        //2.调用CyclicBarrier的await方法等待其他线程全部准备完成
         try {
             cyclicBarrier.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (BrokenBarrierException e) {
+        } catch (InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();
         }
         //3.打印线程启动完毕信息
@@ -31,24 +29,9 @@ public class CyclicBarrierMain {
 
     public static void main(String[] args) {
         final CyclicBarrierMain cyclicBarrierMain = new CyclicBarrierMain();
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                cyclicBarrierMain.startThread();
-            }
-        }, "选手1");
-        Thread thread2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                cyclicBarrierMain.startThread();
-            }
-        }, "选手2");
-        Thread thread3 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                cyclicBarrierMain.startThread();
-            }
-        }, "选手3");
+        Thread thread1 = new Thread(cyclicBarrierMain::startThread, "选手1");
+        Thread thread2 = new Thread(cyclicBarrierMain::startThread, "选手2");
+        Thread thread3 = new Thread(cyclicBarrierMain::startThread, "选手3");
 
         thread1.start();
         thread2.start();

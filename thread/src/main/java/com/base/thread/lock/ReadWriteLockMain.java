@@ -10,22 +10,22 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * firstThread(white)   f(T)o(F)             f(T)o(F)
  * firstThread(read)    f(T)o(F)             f(T)o(T)
  *
- * @author WTY
+ * @author wty
  */
 public class ReadWriteLockMain {
     /**
      * 操作的map对象
      */
-    private Map<String, String> map = new HashMap<String, String>();
-    private ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+    private final Map<String, String> map = new HashMap<>();
+    private final ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     /**
      * 读操作锁
      */
-    private ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
+    private final ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
     /**
      * 写操作锁
      */
-    private ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
+    private final ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
 
     public static void main(String[] args) {
         final ReadWriteLockMain readWriteLockMain = new ReadWriteLockMain();

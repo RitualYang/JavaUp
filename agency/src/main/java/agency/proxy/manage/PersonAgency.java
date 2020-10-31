@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @author WTY
+ * @author wty
  * @create 2020-01-06 17:04
  */
 public class PersonAgency {

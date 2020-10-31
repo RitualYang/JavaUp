@@ -6,7 +6,7 @@ package create.singleton;
  *  1.私有化构造方法
  *  2.提供对象获取的接口
  * @author wty
- * @Date 2020/10/10 22:14
+ * @date 2020/10/10 22:14
  */
 public class Singleton {
     public static void main(String[] args) {

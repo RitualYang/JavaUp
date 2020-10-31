@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 /**
  * Semaphore用于控制对某组资源的访问权限。
  *
- * @author WTY
+ * @author wty
  */
 public class SemaphoreMain {
 
@@ -22,7 +22,7 @@ public class SemaphoreMain {
     static class Work implements Runnable {
 
         //机器数
-        private Semaphore semaphore;
+        private final Semaphore semaphore;
 
         public Work(Semaphore semaphore) {
             this.semaphore = semaphore;

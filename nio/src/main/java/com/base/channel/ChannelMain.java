@@ -51,8 +51,8 @@ import java.nio.file.StandardOpenOption;
  * 编码：字符串 -> 字节数组
  * 解码：字节数组  -> 字符串
  *
- * @author WTY
- * @Date 2020/5/11 22:27
+ * @author wty
+ * @date 2020/5/11 22:27
  */
 public class ChannelMain {
 

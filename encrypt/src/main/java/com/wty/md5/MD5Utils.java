@@ -6,8 +6,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
 /**
- * @author WTY
- * @Date 2020/7/29 22:00
+ * @author wty
+ * @date 2020/7/29 22:00
  */
 public class MD5Utils {
     public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {

@@ -4,7 +4,7 @@ package create.builder;
  * TODO
  *
  * @author wty
- * @Date 2020/10/11 20:17
+ * @date 2020/10/11 20:17
  */
 public class BuilderMain {
     public static void main(String[] args) {

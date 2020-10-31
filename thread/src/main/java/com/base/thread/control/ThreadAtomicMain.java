@@ -4,13 +4,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
- * @author WTY
- * @Date 2020/5/9 15:17
+ * @author wty
+ * @date 2020/5/9 15:17
  */
 public class ThreadAtomicMain {
 
     final int WHILE = 100;
-    final int FOR = 1000;
+    final int FOR = 10000;
     static int n;
     static AtomicInteger atomicInteger;
     static AtomicStampedReference<Integer> atomicSR;
@@ -27,26 +27,20 @@ public class ThreadAtomicMain {
     /**
      * 未保证数据原子性
      *
-     * @throws InterruptedException
+     * @throws InterruptedException 并发异常
      */
     public void notAtomic() throws InterruptedException {
         int j = 0;
         while (j < WHILE) {
             n = 0;
-            Thread thread1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < FOR; i++) {
-                        n++;
-                    }
+            Thread thread1 = new Thread(() -> {
+                for (int i = 0; i < FOR; i++) {
+                    n++;
                 }
             });
-            Thread thread2 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < FOR; i++) {
-                        n++;
-                    }
+            Thread thread2 = new Thread(() -> {
+                for (int i = 0; i < FOR; i++) {
+                    n++;
                 }
             });
             thread1.start();
@@ -62,28 +56,22 @@ public class ThreadAtomicMain {
      * 保证数据原子性
      * 但可能出现ABA问题
      *
-     * @throws InterruptedException
+     * @throws InterruptedException 并发异常
      */
     public void atomicClass() throws InterruptedException {
         int j = 0;
         while (j < WHILE) {
             //创建原子整数,初始值为0
             atomicInteger = new AtomicInteger(0);
-            Thread thread1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < FOR; i++) {
-                        //++操作
-                        atomicInteger.getAndIncrement();
-                    }
+            Thread thread1 = new Thread(() -> {
+                for (int i = 0; i < FOR; i++) {
+                    //++操作
+                    atomicInteger.getAndIncrement();
                 }
             });
-            Thread thread2 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < FOR; i++) {
-                        atomicInteger.getAndIncrement();
-                    }
+            Thread thread2 = new Thread(() -> {
+                for (int i = 0; i < FOR; i++) {
+                    atomicInteger.getAndIncrement();
                 }
             });
             thread1.start();
@@ -99,41 +87,27 @@ public class ThreadAtomicMain {
         int j = 0;
         while (j < WHILE) {
             //初始值为0,时间戳的初始值为0
-            atomicSR = new AtomicStampedReference(0, 0);
-            Thread thread1 = new Thread() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < FOR; i++) {
-//                        n++;
-                        int stamp;
-                        Integer reference;
-                        do {
-                            stamp = atomicSR.getStamp();
-                            reference = atomicSR.getReference();
-                        } while (!atomicSR.compareAndSet(reference, reference + 1, stamp, stamp + 1));
-                    }
-                }
-            };
-            Thread thread2 = new Thread() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < FOR; i++) {
-//                        n++;
-                        int stamp;
-                        Integer reference;
-                        do {
-                            stamp = atomicSR.getStamp();
-                            reference = atomicSR.getReference();
-                        } while (!atomicSR.compareAndSet(reference, reference + 1, stamp, stamp + 1));
-                    }
-                }
-            };
+            atomicSR = new AtomicStampedReference<>(0, 0);
+            Thread thread1 = new Thread(this::forAdd);
+            Thread thread2 = new Thread(this::forAdd);
             thread1.start();
             thread2.start();
             thread1.join();
             thread2.join();
             System.out.println("AtomicStampedReference的最终值是：" + atomicSR.getReference());
             j++;
+        }
+    }
+
+    private void forAdd() {
+        for (int i = 0; i < FOR; i++) {
+            // n++;
+            int stamp;
+            Integer reference;
+            do {
+                stamp = atomicSR.getStamp();
+                reference = atomicSR.getReference();
+            } while (!atomicSR.compareAndSet(reference, reference + 1, stamp, stamp + 1));
         }
     }
 }

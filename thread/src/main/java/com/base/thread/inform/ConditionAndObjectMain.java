@@ -5,14 +5,14 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author WTY
+ * @author wty
  */
 public class ConditionAndObjectMain {
 
     private int i = 0;//要打印的数
-    private Object obj = new Object();
-    private Lock lock = new ReentrantLock();
-    private Condition condition = lock.newCondition();
+    private final Object obj = new Object();
+    private final Lock lock = new ReentrantLock();
+    private final Condition condition = lock.newCondition();
 
     public static void main(String[] args) {
         final ConditionAndObjectMain oddEvenMain = new ConditionAndObjectMain();
@@ -23,26 +23,16 @@ public class ConditionAndObjectMain {
         oddEvenMain.useLock(oddEvenMain);
         /**
          * object.wait||notify 需要在synchronized代码块中使用
-         * object.wait()必须要通过Nodify()方法进行唤醒
+         * object.wait()必须要通过notify()方法进行唤醒
          */
         //oddEvenMain.useSync(oddEvenMain);
     }
 
     public void useLock(ConditionAndObjectMain oddEvenMain) {
         //1.开启奇数线程打印
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                oddEvenMain.odd();
-            }
-        });
+        Thread thread1 = new Thread(oddEvenMain::odd);
         //2.开启偶数线程打印
-        Thread thread2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                oddEvenMain.even();
-            }
-        });
+        Thread thread2 = new Thread(oddEvenMain::even);
 
         thread1.start();
         thread2.start();
@@ -50,19 +40,9 @@ public class ConditionAndObjectMain {
 
     public void useSync(ConditionAndObjectMain oddEvenMain) {
         //1.开启奇数线程打印
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                oddEvenMain.oddSync();
-            }
-        });
+        Thread thread1 = new Thread(oddEvenMain::oddSync);
         //2.开启偶数线程打印
-        Thread thread2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                oddEvenMain.evenSync();
-            }
-        });
+        Thread thread2 = new Thread(oddEvenMain::evenSync);
         thread1.start();
         thread2.start();
     }

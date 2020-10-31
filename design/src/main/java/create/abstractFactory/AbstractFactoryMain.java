@@ -8,7 +8,7 @@ import java.nio.file.Paths;
  * TODO
  *
  * @author wty
- * @Date 2020/10/11 20:23
+ * @date 2020/10/11 20:23
  */
 public class AbstractFactoryMain {
     public static void main(String[] args) throws IOException {

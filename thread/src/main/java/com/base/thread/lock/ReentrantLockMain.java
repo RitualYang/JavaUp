@@ -5,13 +5,12 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 可重入锁
  *
- * @author WTY
+ * @author wty
  */
 public class ReentrantLockMain {
     final static int FOR = 10;
     static ReentrantLock lock = new ReentrantLock();
 
-    @SuppressWarnings("all")
     public static void main(String[] args) {
         for (int i = 0; i < FOR; i++) {
             lock.lock();

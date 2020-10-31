@@ -1,6 +1,6 @@
 /**
- * @author WTY
- * @Date 2020/8/10 15:50
+ * @author wty
+ * @date 2020/8/10 15:50
  * @Description: TODO
  */
 public class IntegerTest {

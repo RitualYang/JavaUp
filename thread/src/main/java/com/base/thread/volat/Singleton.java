@@ -1,8 +1,8 @@
 package com.base.thread.volat;
 
 /**
- * @author WTY
- * @Date 2020/5/9 16:38
+ * @author wty
+ * @date 2020/5/9 16:38
  */
 public class Singleton {
     private volatile static Singleton instance = null;
@@ -13,13 +13,8 @@ public class Singleton {
 
     public static void main(String[] args) {
         for (int i = 0; i < 3; i++) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    //getErrorInstance();
-                    getInstance();
-                }
-            }).start();
+            //getErrorInstance();
+            new Thread(Singleton::getInstance).start();
         }
     }
 

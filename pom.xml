@@ -33,8 +33,8 @@
         <module>file</module><!--文件操作-->
         <module>other</module><!--杂项-->
         <module>encrypt</module><!--加密-->
-        <module>network</module>
-        <module>design</module><!--网络通信-->
+        <module>network</module><!--网络通信-->
+        <module>design</module><!--设计模式-->
     </modules>
     <packaging>pom</packaging>
 

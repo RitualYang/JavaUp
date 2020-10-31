@@ -1,7 +1,7 @@
 package agency.statical;
 
 /**
- * @author WTY
+ * @author wty
  * @create 2020-03-05 17:02
  */
 public class PersonProxy implements Person {

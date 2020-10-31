@@ -8,7 +8,7 @@ package create.singleton;
  *  3. 加锁
  *
  * @author wty
- * @Date 2020/10/10 22:31
+ * @date 2020/10/10 22:31
  */
 public class PerfectSingleton {
     private static volatile PerfectSingleton instance = null;

@@ -4,7 +4,7 @@ package create.factoryMethod;
  * TODO
  *
  * @author wty
- * @Date 2020/10/11 20:08
+ * @date 2020/10/11 20:08
  */
 public class FactoryMethod {
     public static void main(String[] args) {

@@ -3,8 +3,8 @@ package com.base.lambda.closure;
 import java.util.function.Consumer;
 
 /**
- * @author WTY
- * @Date 2020/4/24 19:11
+ * @author wty
+ * @date 2020/4/24 19:11
  */
 public class ClosureMain2 {
     public static void main(String[] args) {

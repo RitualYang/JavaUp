@@ -5,8 +5,8 @@ import com.base.lambda.data.Person;
 import java.util.ArrayList;
 
 /**
- * @author WTY
- * @Date 2020/4/24 17-14
+ * @author wty
+ * @date 2020/4/24 17-14
  */
 public class Exercise1 {
     // 集合排序:

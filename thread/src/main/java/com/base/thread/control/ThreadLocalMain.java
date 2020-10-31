@@ -1,8 +1,8 @@
 package com.base.thread.control;
 
 /**
- * @author WTY
- * @Date 2020/5/9 15:06
+ * @author wty
+ * @date 2020/5/9 15:06
  */
 public class ThreadLocalMain {
 
@@ -19,13 +19,10 @@ public class ThreadLocalMain {
 
     //创建银行对象：钱,取款,存款
     static class Bank {
-        private ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>() {
-            @Override
-            protected Integer initialValue() {
-                System.out.println("线程创建,新建threadlocal的值");
-                return 0;
-            }
-        };
+        private final ThreadLocal<Integer> threadLocal = ThreadLocal.withInitial(() -> {
+            System.out.println("线程创建,新建threadLocal的值");
+            return 0;
+        });
 
         public Integer get() {
             return threadLocal.get();
@@ -40,7 +37,7 @@ public class ThreadLocalMain {
      * 创建转账对象：从银行中取钱,转账,保存到帐户
      */
     static class Transfer implements Runnable {
-        private Bank bank;
+        private final Bank bank;
 
         public Transfer(Bank bank) {
             this.bank = bank;

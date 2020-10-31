@@ -1,7 +1,7 @@
 package com.base.thread.sync;
 
 /**
- * @author WTY
+ * @author wty
  */
 public class TicketSaleMain {
     public static void main(String[] args) {

@@ -7,15 +7,15 @@ package com.base.thread.volat;
  * 1. volatile 不具备“互斥性”
  * 2. volatile 不能保证变量的“原子性”
  *
- * @author WTY
- * @Date 2020/5/11 21:19
+ * @author wty
+ * @date 2020/5/11 21:19
  */
 public class VolatileMain {
     public static void main(String[] args) {
         ThreadDemo td = new ThreadDemo();
-        new Thread(td).start();
+        new Thread(td,"ThreadDemo").start();
         while (true) {
-            System.out.println("flag=" + td.isFlag());
+            System.out.println(Thread.currentThread().getName() + "--flag=" + td.isFlag());
             if (td.isFlag()) {
                 System.out.println("------------------");
                 break;
@@ -32,9 +32,10 @@ class ThreadDemo implements Runnable {
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         flag = true;
-        System.out.println("flag=" + isFlag());
+        System.out.println(Thread.currentThread().getName() + "--flag=" + isFlag());
 
     }
 

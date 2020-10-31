@@ -6,11 +6,11 @@ import java.util.concurrent.CountDownLatch;
  * CountDownLatch能够使一个线程等待其他线程完成各自的工作后再执行。
  * CountDownLatch底层通过一个计数器来实现的,计数器的初始值为线程的数量。
  *
- * @author WTY
+ * @author wty
  */
 public class CountDownLatchMain {
     //设置要等待的运动员是3个
-    private CountDownLatch countDownLatch = new CountDownLatch(3);
+    private final CountDownLatch countDownLatch = new CountDownLatch(3);
 
     /**
      * 运动员方法,由运动员线程调用
@@ -53,31 +53,11 @@ public class CountDownLatchMain {
         //1.创建CoachRacerMain实例
         final CountDownLatchMain countDownLatchMain = new CountDownLatchMain();
         //2.创建三个线程对象,调用CoachRacerMain的racer方法
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                countDownLatchMain.racer();
-            }
-        }, "运动员1");
-        Thread thread2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                countDownLatchMain.racer();
-            }
-        }, "运动员2");
-        Thread thread3 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                countDownLatchMain.racer();
-            }
-        }, "运动员3");
+        Thread thread1 = new Thread(countDownLatchMain::racer, "运动员1");
+        Thread thread2 = new Thread(countDownLatchMain::racer, "运动员2");
+        Thread thread3 = new Thread(countDownLatchMain::racer, "运动员3");
         //3.创建一个线程对象,调用CoachRacerMain的coach方法
-        Thread thread4 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                countDownLatchMain.coach();
-            }
-        }, "教练");
+        Thread thread4 = new Thread(countDownLatchMain::coach, "教练");
 
         try {
             thread4.join();

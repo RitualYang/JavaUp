@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.Pipe;
 
 /**
- * @author WTY
+ * @author wty
  */
 public class PipeMain {
     public static void main(String[] args) throws IOException {
