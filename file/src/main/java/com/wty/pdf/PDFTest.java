@@ -281,6 +281,8 @@ public class PDFTest {
         }
         try {
             document.add(table1);
+            document.newPage();
+            document.add(table1);
         } catch (DocumentException e) {
             e.printStackTrace();
         }

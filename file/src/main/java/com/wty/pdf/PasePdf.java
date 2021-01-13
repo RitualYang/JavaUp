@@ -35,6 +35,7 @@ public class PasePdf {
                 table.addCell(row);
             }
             document.add(table);
+            document.newPage();
             document.close();
         } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
