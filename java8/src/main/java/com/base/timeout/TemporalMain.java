@@ -56,8 +56,6 @@ public class TemporalMain {
 
     /**
      * 时区
-     * ZonedDate
-     * ZonedTime
      * ZonedDateTime
      */
     @Test

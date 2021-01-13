@@ -9,11 +9,7 @@ import java.time.*;
  * @date 2020/4/27 17:19
  */
 public class LocalDateTimeMain {
-    /**
-     * LocalDate
-     * LocalTime
-     * LocalDateTime
-     */
+
     @Test
     public void test1() {
         LocalDateTime ldt = LocalDateTime.now();
@@ -38,9 +34,9 @@ public class LocalDateTimeMain {
     public void test2() {
         Instant now = Instant.now(); // 默认获取UTC时区
         System.out.println(now);
-        OffsetDateTime offsetDateTime = now.atOffset(ZoneOffset.ofHours(8));
+        OffsetDateTime offsetDateTime = now.atOffset(ZoneOffset.ofHours(8));// 推迟8小时
         System.out.println(offsetDateTime);
-        System.out.println(now.toEpochMilli());
+        System.out.println(now.toEpochMilli());// 打印时间戳
         Instant instant = Instant.ofEpochSecond(1000);
         System.out.println(instant);
     }
@@ -61,7 +57,7 @@ public class LocalDateTimeMain {
         Duration duration = Duration.between(now, now1);
         System.out.println(duration.getSeconds());
         System.out.println("----------------------------------");
-        LocalDate ld1 = LocalDate.of(2020, 1, 1);
+        LocalDate ld1 = LocalDate.of(2021, 4, 13);
         LocalDate ld2 = LocalDate.now();
         Period period = Period.between(ld1, ld2);
         System.out.println(period.getYears());

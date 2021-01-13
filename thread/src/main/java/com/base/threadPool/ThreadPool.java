@@ -35,7 +35,7 @@ public class ThreadPool {
                 TimeUnit.SECONDS,
                 new LinkedBlockingQueue<Runnable>(10),
                 new ThreadPoolExecutor.AbortPolicy());
-
+        //threadPoolExecutor.execute();
         /**
          * 创建一个可缓存线程池,如果线程池长度超过处理需要,可灵活回收空闲线程,若无可回收,则新建线程。
          * 1.创建数量几乎没有限制(最大数目为Interger.MAX_VALUE)

@@ -35,6 +35,8 @@
         <module>encrypt</module><!--加密-->
         <module>network</module><!--网络通信-->
         <module>design</module><!--设计模式-->
+        <module>JVM</module>
+        <module>netty</module>
     </modules>
     <packaging>pom</packaging>
 
