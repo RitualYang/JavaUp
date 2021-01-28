@@ -18,6 +18,11 @@ public class PersonAgency {
         noParameter();
     }
 
+    /**
+     * 有参方法代理
+     *
+     * @param work
+     */
     public static void haveParameter(String work) {
         final Student student = new Student();
         /**
@@ -37,28 +42,29 @@ public class PersonAgency {
          */
         Person proxyStudent = (Person) Proxy.newProxyInstance(student.getClass().getClassLoader(),
                 student.getClass().getInterfaces(), new InvocationHandler() {
-            /**
-             * 作用:执行被代理对象的任何接口方法都会经过该方法
-             * @param proxy 代理对象的引用
-             * @param method 当前执行的方法
-             * @param args  当前执行方法所需的参数
-             * @return 和被代理对象有相同的返回值
-             * @throws Throwable
-             */
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                //提供增强的代码
-                Object returnValue = null;
-                //1.获取方法的执行参数
-                String arg = (String) args[0];
-                //2.判断当前方法是不是工作
-                if ("work".equals(method.getName())) {
-                    System.out.println("开始代理了");
-                    returnValue = method.invoke(student, arg);
-                    System.out.println("代理结束了");
-                }
-                return returnValue;
-            }
-        });
+                    /**
+                     * 作用:执行被代理对象的任何接口方法都会经过该方法
+                     * @param proxy 代理对象的引用
+                     * @param method 当前执行的方法
+                     * @param args  当前执行方法所需的参数
+                     * @return 和被代理对象有相同的返回值
+                     * @throws Throwable
+                     */
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                        //提供增强的代码
+                        Object returnValue = null;
+                        //1.获取方法的执行参数
+                        String arg = (String) args[0];
+                        //2.判断当前方法是不是工作
+                        if ("work".equals(method.getName())) {
+                            System.out.println("开始代理了");
+                            returnValue = method.invoke(student, arg);
+                            System.out.println("代理结束了");
+                        }
+                        return returnValue;
+                    }
+                });
         proxyStudent.work(work);
     }
 
@@ -66,18 +72,19 @@ public class PersonAgency {
         final Student student = new Student();
         Person proxyStudent = (Person) Proxy.newProxyInstance(student.getClass().getClassLoader(),
                 student.getClass().getInterfaces(), new InvocationHandler() {
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                //提供增强的代码
-                Object returnValue = null;
-                //1.判断当前方法是不是工作
-                if ("introduce".equals(method.getName())) {
-                    System.out.println("开始代理了");
-                    returnValue = method.invoke(student, args);
-                    System.out.println("代理结束了");
-                }
-                return returnValue;
-            }
-        });
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                        //提供增强的代码
+                        Object returnValue = null;
+                        //1.判断当前方法是不是工作
+                        if ("introduce".equals(method.getName())) {
+                            System.out.println("开始代理了");
+                            returnValue = method.invoke(student, args);
+                            System.out.println("代理结束了");
+                        }
+                        return returnValue;
+                    }
+                });
         proxyStudent.introduce();
     }
 }

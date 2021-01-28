@@ -18,6 +18,10 @@ public class PersonAgency {
         noParameter();
     }
 
+    /**
+     * 有参方法代理
+     * @param work
+     */
     public static void haveParameter(String work) {
         final Student student = new Student();
         /**
@@ -61,6 +65,9 @@ public class PersonAgency {
         CglibStudent.work(work);
     }
 
+    /**
+     * 无参方法代理
+     */
     public static void noParameter() {
         final Student student = new Student();
         Student CglibStudent = (Student) Enhancer.create(student.getClass(), new MethodInterceptor() {

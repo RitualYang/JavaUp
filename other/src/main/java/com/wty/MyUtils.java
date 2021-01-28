@@ -10,6 +10,10 @@ import java.util.Date;
  * @date 2020/9/12 18:13
  */
 public class MyUtils {
+    /**
+     * 随机生成性别
+     * @return
+     */
     public static String getGender() {
         String[] str = {"男", "女"};
         double random = Math.random() * 100;
@@ -58,7 +62,6 @@ public class MyUtils {
      * @param endDate   结束日期，格式为：yyyy-MM-dd
      * @return
      */
-
     private static Date randomDate(String beginDate, String endDate) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
