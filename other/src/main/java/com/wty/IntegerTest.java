@@ -16,6 +16,7 @@ public class IntegerTest {
         Integer k = 129;
         Integer f = 129;
         System.out.println(k.equals(f));
+        System.out.println(k == f);
     }
 
     public boolean test(){
