@@ -10,7 +10,18 @@ import java.text.DecimalFormat;
  */
 public class StringTest {
     public static void main(String[] args) {
-        stringConstant();
+        //stringConstant();
+        //spilt();
+        System.out.println("我是好人 \n 真的吗");
+    }
+
+    public static void spilt(){
+        String str = "userId;|;amount;|;";
+        String[] split = str.split(";\\|;");
+        for (String s : split){
+            System.out.println(s);
+        }
+        System.out.println(split[2]);
     }
 
     public static void stringConstant(){
