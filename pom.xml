@@ -25,18 +25,18 @@
     </properties>
 
     <modules>
-        <module>thread</module><!--线程操作-->
-        <module>agency</module><!--代理操作-->
-        <module>reflect</module><!--反射操作-->
+<!--        <module>thread</module>&lt;!&ndash;线程操作&ndash;&gt;-->
+<!--        <module>agency</module>&lt;!&ndash;代理操作&ndash;&gt;-->
+<!--        <module>reflect</module>&lt;!&ndash;反射操作&ndash;&gt;-->
         <module>java8</module><!--java8-->
-        <module>nio</module><!--nio-->
-        <module>file</module><!--文件操作-->
+<!--        <module>nio</module>&lt;!&ndash;nio&ndash;&gt;-->
+<!--        <module>file</module>&lt;!&ndash;文件操作&ndash;&gt;-->
         <module>other</module><!--杂项-->
-        <module>encrypt</module><!--加密-->
-        <module>network</module><!--网络通信-->
-        <module>design</module><!--设计模式-->
-        <module>JVM</module>
-        <module>netty</module>
+<!--        <module>encrypt</module>&lt;!&ndash;加密&ndash;&gt;-->
+<!--        <module>network</module>&lt;!&ndash;网络通信&ndash;&gt;-->
+<!--        <module>design</module>&lt;!&ndash;设计模式&ndash;&gt;-->
+<!--        <module>JVM</module>-->
+<!--        <module>netty</module>-->
     </modules>
     <packaging>pom</packaging>
 

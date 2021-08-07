@@ -21,6 +21,7 @@ public class ListTest {
         list.forEach(s -> System.out.println(s));*/
         List<String> strList = list.stream().filter(str -> str.contains("奸细")).collect(Collectors.toList());
         strList.forEach(s -> System.out.println(s));
+        strList.sort(String::compareTo);
     }
 
     /**

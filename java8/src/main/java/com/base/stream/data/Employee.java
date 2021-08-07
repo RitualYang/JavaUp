@@ -94,7 +94,8 @@ public class Employee implements Comparable<Employee> {
         return o.getSalary().intValue();
     }
 
-    public enum Status {
+
+    public static enum Status {
         FREE,
         BUSY,
         VOCATION;
