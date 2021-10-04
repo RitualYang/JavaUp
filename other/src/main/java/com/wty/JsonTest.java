@@ -2,6 +2,7 @@ package com.wty;
 
 import com.alibaba.fastjson.JSON;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +36,7 @@ class A {
     private String name;
     private List<String> roomsIds;
 }
+@EqualsAndHashCode(callSuper = true)
 @Data
 class B extends A {
     private String value;

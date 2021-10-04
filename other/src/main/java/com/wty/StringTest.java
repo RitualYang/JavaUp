@@ -26,7 +26,19 @@ public class StringTest {
 //        fillSkuUseOpeningTime(skuTitle2);
 //        String skuTitle3 = "入住时段：周一至周二、周四至周五、周日(2021.04.29-2021.05.31)";
 //        fillSkuUseOpeningTime(skuTitle3);
-        System.out.println(true || false && true && false);
+        constant();
+    }
+
+    public static void constant() {
+        String str1 = "123";
+        String str2 = str1 + "123";
+        String str3 = "123" + "123";
+        String str4 = "123123";
+        System.out.println(str2.equals(str3));
+        System.out.println(str3.equals(str4));
+        String nu = null;
+        String nu1 = nu + "";
+        System.out.println(nu1);
     }
 
     public static void spilt(){
