@@ -8,15 +8,12 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * TODO
- *
  * @author wty
  * @date 2021/5/12 10:43
  */
 public class UrlTest {
     public static void main(String[] args) {
-        //String itemUrl = "https://pre.caibeike.net/h5/product/detail?dealCode=479589939748&strategyType=groupon&trace=cbk";
-        String itemUrl = "https://pre.caibeike.net/ts/shopcard/item/5f916a72e4b0279b9d22c4db_5f916a729499ac539e084d04?trace=cbk";
+        String itemUrl = "https://www.baidu.com/xxx?wod=adas";
         String[] urlParts = itemUrl.split("\\?");
         // 入参不完整
         if (urlParts.length <= 1) {
@@ -39,26 +36,5 @@ public class UrlTest {
         System.out.println(itemUrl.substring(itemUrl.lastIndexOf("/") + 1, itemUrl.indexOf("?")));
         System.out.println(JSON.toJSONString(pathList));
         System.out.println(JSON.toJSONString(paramsMap));
-        club();
-        item();
-    }
-
-    private static void club() {
-        String itemUrl = "https://pre.caibeike.net/ms/items/eventdetail/kid_601cfe53e4b08b14f55e0da8";
-        String itemCode = itemUrl.substring(itemUrl.lastIndexOf("_") + 1);
-        System.out.println(itemCode);
-    }
-
-    public static void item() {
-        String itemUrl = "https://pre.caibeike.net/ms/items/eventdetail/kid_601cfe53e4b08b14f55e0da8_null";
-        String[] s = itemUrl.split("_");
-        if (s.length >= 2) {
-            System.out.println(s[1]);
-        }
-    }
-    public static void pass() {
-        String itemUrl = "";
-        String passcardId = itemUrl.substring(itemUrl.lastIndexOf("/") + 1, itemUrl.indexOf("_") + 1);
-
     }
 }
