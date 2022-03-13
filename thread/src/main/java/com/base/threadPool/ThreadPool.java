@@ -20,7 +20,14 @@ public class ThreadPool {
          * 	        唤醒执行入列操作的线程。从这个特性来看,SynchronousQueue是一个无界队列,因此当使用SynchronousQueue
          * 	        作为线程池的阻塞队列时,参数maximumPoolSizes没有任何作用。
          * 	    LinkedBlockingQueue<Runnable>：顾名思义是用链表实现的队列,可以是有界的,也可以是无界的,但在Executors
-         * 	        中默认使用无界的。
+         * 	        中默认使用无界的,最大长度为Integer.MAX_VALUE,由于长度过长可能导致内存溢出(OOM异常)。
+         * 	    ArrayBlockingQueue<Runnable>:  有界队列，基于数组实现。在线程池初始化时，指定队列的容量，后续无法再调整。
+         * 	        这种有界队列有利于防止资源耗尽，但可能更难调整和控制。
+         * 	  其他四种队列:
+         * 	    PriorityBlockingQueue： 支持优先级排序的无界阻塞队列。存放在PriorityBlockingQueue中的元素必须实现Comparable接口，这样才能通过实现compareTo()方法进行排序。优先级最高的元素将始终排在队列的头部；PriorityBlockingQueue不会保证优先级一样的元素的排序，也不保证当前队列中除了优先级最高的元素以外的元素，随时处于正确排序的位置。
+         *      DelayQueue： 延迟队列。基于二叉堆实现，同时具备：无界队列、阻塞队列、优先队列的特征。DelayQueue延迟队列中存放的对象，必须是实现Delayed接口的类对象。通过执行时延从队列中提取任务，时间没到任务取不出来。更多内容请见DelayQueue。
+         *      LinkedBlockingDeque： 双端队列。基于链表实现，既可以从尾部插入/取出元素，还可以从头部插入元素/取出元素。
+         *      LinkedTransferQueue： 由链表结构组成的无界阻塞队列。这个队列比较特别的时，采用一种预占模式，意思就是消费者线程取元素时，如果队列不为空，则直接取走数据，若队列为空，那就生成一个节点（节点元素为null）入队，然后消费者线程被等待在这个节点上，后面生产者线程入队时发现有一个元素为null的节点，生产者线程就不入队了，直接就将元素填充到该节点，并唤醒该节点等待的线程，被唤醒的消费者线程取走元素。
          * 	keepAliveTime：表示空闲线程的存活时间。
          * 	unit：表示keepAliveTime的单位。
          * 	handler：表示当workQueue已满,且池中的线程数达到maximumPoolSize时,线程池拒绝添加新任务时采取的策略。一般可以采取以下四种取值。

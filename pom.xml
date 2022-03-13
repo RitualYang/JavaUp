@@ -28,7 +28,7 @@
         <module>thread</module><!--线程操作-->
 <!--        <module>agency</module>&lt;!&ndash;代理操作&ndash;&gt;-->
 <!--        <module>reflect</module>&lt;!&ndash;反射操作&ndash;&gt;-->
-        <!--<module>java8</module>&lt;!&ndash;java8&ndash;&gt;-->
+        <module>java8</module><!--java8-->
 <!--        <module>nio</module>&lt;!&ndash;nio&ndash;&gt;-->
         <module>file</module><!--文件操作-->
         <module>other</module><!--杂项-->
