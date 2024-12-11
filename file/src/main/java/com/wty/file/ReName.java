@@ -13,7 +13,6 @@ public class ReName {
         String filePath = "F:\\BaiduNetdiskDownload\\进阶\\尚硅谷Java学科全套教程\\1.尚硅谷全套JAVA教程--基础阶段\\尚硅谷 韩顺平 图解Java设计模式\\视频";
         String world = "-尚硅谷-图解Java设计模式";
         ReNameFile(filePath,world);
-
     }
 
     public static void ReNameFile(String filePath, String world) {

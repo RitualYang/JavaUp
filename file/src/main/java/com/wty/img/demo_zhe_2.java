@@ -7,28 +7,25 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.NumberTickUnitSource;
-import org.jfree.chart.axis.TickUnitSource;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.chart.renderer.category.DefaultCategoryItemRenderer;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
 import org.jfree.chart.ui.TextAnchor;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class demo_zhe {
+public class demo_zhe_2 {
 
     public static String imagePath = "/Users/peter/IdeaProjects/my-project/JavaUp";
 
@@ -62,11 +59,11 @@ public class demo_zhe {
 //        extracted("_多条2折线图", lineChart);
 
         // 创建图表
-        JFreeChart chart = ChartFactory.createLineChart(
+        JFreeChart chart = ChartFactory.createTimeSeriesChart(
                 "低压燃气管道", // 图表标题
                 "材质", // 横轴标签
                 "", // 纵轴标签，在后面创建纵轴标签
-                dataset // 数据集
+                xySeriesCollection // 数据集
 
         );
 
@@ -74,7 +71,7 @@ public class demo_zhe {
         chart.setBackgroundPaint(Color.white);
 
         // 获取绘图区域对象
-        CategoryPlot plot = (CategoryPlot) chart.getPlot();
+        XYPlot plot =  chart.getXYPlot();
         // 设置Y1轴
         NumberAxis axis1 = (NumberAxis) plot.getRangeAxis();
         axis1.setAutoRangeIncludesZero(false);
@@ -87,13 +84,12 @@ public class demo_zhe {
 
         // 将第二个Y轴添加到图表中
         plot.setRangeAxis(1, axis2);
-        plot.setDataset(1, dataset2);
+        plot.setDataset(1, xySeriesCollection1);
         plot.mapDatasetToRangeAxis(1, 1);
 
         //设置折线图拐角上的正方形
-        LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
 
-        DefaultCategoryItemRenderer renderer1 = new DefaultCategoryItemRenderer();
+        DefaultXYItemRenderer renderer1 = new DefaultXYItemRenderer();
         renderer1.setSeriesPaint(0, Color.BLUE);
         renderer1.setDefaultOutlinePaint(Color.BLUE);
         renderer1.setUseOutlinePaint(true);
@@ -101,15 +97,12 @@ public class demo_zhe {
         renderer1.setDrawOutlines(true);
         plot.setRenderer(1, renderer1);
 
-        Lists.newArrayList(renderer, renderer1).forEach(rendererFont -> {
+        Lists.newArrayList(plot.getRenderer(), renderer1).forEach(rendererFont -> {
             //创建一个正方形
             Rectangle shape=new Rectangle(4,4);
             rendererFont.setSeriesShape(0, shape);
-            rendererFont.setSeriesShapesVisible(0, true);
-            rendererFont.setSeriesShapesVisible(1, true);
             rendererFont.setSeriesStroke(0, new BasicStroke(3F));
             //在折点新鲜事数值
-            rendererFont.setDefaultItemLabelGenerator(new StandardCategoryItemLabelGenerator());
             rendererFont.setDefaultItemLabelsVisible(true);
             rendererFont.setDefaultPositiveItemLabelPosition(
                     new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BASELINE_LEFT));
@@ -117,9 +110,6 @@ public class demo_zhe {
         });
 
         /** ---------------------- 中文乱码问题处理 Start ------------------------------- */
-        CategoryAxis domainAxis = plot.getDomainAxis();     //水平底部列表
-        domainAxis.setLabelFont(new Font("宋体", Font.BOLD, 14));     //水平底部标题
-        domainAxis.setTickLabelFont(new Font("宋体", Font.BOLD, 12)); //垂直标题
 
         ValueAxis rangeAxis = plot.getRangeAxis();//获取柱状
         rangeAxis.setLabelFont(new Font("宋体", Font.BOLD, 15));

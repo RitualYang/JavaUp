@@ -1,4 +1,4 @@
-package com.phemex.thirdparty.web.request;
+package com.wty.network.ok;
 
 import java.util.Map;
 import lombok.AllArgsConstructor;
